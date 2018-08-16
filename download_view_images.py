@@ -1,8 +1,8 @@
+#pip install tableauserverclient
 import tableauserverclient as TSC
-import xlrd
 
 tableau_auth = TSC.TableauAuth('kippndc\josgonzalez', 'Lakai219', 'KIPPLA')
-server = TSC.Server('https://tableau.kipp.org/', use_server_version=True)
+server = TSC.Server('https://stg-tableau.kipp.org/', use_server_version=True)
 
 with server.auth.sign_in(tableau_auth):
     req_options = TSC.RequestOptions()
@@ -13,7 +13,9 @@ with server.auth.sign_in(tableau_auth):
         workbook = server.workbooks.get_by_id(view.workbook_id)
         if (workbook.project_name == 'KASTLE') :
             server.views.populate_preview_image(view)
-            filepath = "/Users/jgonzalez/Desktop/view_preview_images/" + workbook.name + "_" + view.name + ".jpg"
+            #mac
+            filepath = "enter your file path here" + workbook.name.replace('/', ' ') + "_" + view.name.replace('/', ' ') + ".jpg"
+            #windows
             print (filepath)
             print ('')
     
