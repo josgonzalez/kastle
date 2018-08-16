@@ -1,3 +1,7 @@
+
+#pip install python-wordpress-xmlrpc
+#pip install tableauserverclient
+#pip install colorama
 from wordpress_xmlrpc import Client, WordPressPost, WordPressPage, WordPressTerm
 from wordpress_xmlrpc.methods.posts import GetPosts, NewPost
 from wordpress_xmlrpc.methods.users import GetUserInfo
